@@ -31,3 +31,17 @@
 ###### Especificar atributos de Player
 ###### Especificar máximo de Players (10) 
 
+
+# DomainDiagramTicTacToe
+# Mejoras
+###### Modificar rounds para que sea de 2 turnos
+###### Asignar roles desde el principio
+###### Cambiar el tipo de relacion de player a TicTacToePlayer
+
+# En contra
+###### Tener 2 rounds de 1 turno
+###### Rounds no deberia tener la capacidad de asignar roles
+###### La relacion de player a TicTacToePlayer es erronea
+
+# A favor
+###### Los objetivos del jugador son apropiados
