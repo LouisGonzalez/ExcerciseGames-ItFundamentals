@@ -1,6 +1,6 @@
 @startuml VocabularyMain
 
-object Games
+object Games 
 
 object Game
 object TicTacToe
