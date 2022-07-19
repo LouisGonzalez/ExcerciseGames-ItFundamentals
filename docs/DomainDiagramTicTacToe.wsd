@@ -24,7 +24,7 @@ TicTacToe *--"2" Round
 Round *-- Turn
 Round *--"2" TicTacToePlayer
 
-TicTacToePlayer *-- Player
+Player ..|> TicTacToePlayer
 TicTacToePlayer o-- Piece
 TicTacToePlayer o-- Goal
 Goal --|> WinDifWays

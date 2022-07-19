@@ -21,14 +21,14 @@ object GuiveAHint
 object HangManPlayer
 
 HangMan *--"2" Round
-HangMan ..> SelectPlayers
+HangMan ..>"2" SelectPlayers
 HangMan *-->"2" Player
 HangMan *-- StatisticsTempo
 HangMan *-- GuessingAttempts
 
 Round --> GuessingAttempts
-Round *-- Turn
-Round ..> AssignRoles
+Round *--"*" Turn
+Round *-- AssignRoles
 AssignRoles ..> Player
 AssignRoles ..> WordGiverable
 AssignRoles ..> WordGuesserable
