@@ -1,0 +1,70 @@
+@startuml ClassHangman
+
+package PlayerModel {
+
+class Player {
+    String name
+    StatisticsPlayer stats
+}
+interface IHangmanPlayer {
+    void selectWord()
+    void tryLetter()
+    void guessWord()
+    void askForAHint()
+}
+
+class Bot {
+    void selectWord()
+    char tryLetter()
+    void guessWord()
+    void askForAHint()
+}
+class Human{
+    void selectWord()
+    char tryLetter()
+    void guessWord()
+    void askForAHint()
+}
+
+}
+
+class Hangman {
+    Word myWord
+    Player player1
+    Player player2
+    int remainingAttemps
+    int guessingAttemps
+    void round()
+    void turn()
+    void giveAHint()
+
+}
+
+class StatisticsPlayer {
+    ArrayList<Statistic> listStatistics
+
+}
+
+class Statistic {
+    boolean win
+    boolean lose 
+}
+
+
+class Word{
+    String originalWord
+    String hiddenWord
+}
+
+Hangman *--> "2" Player
+Hangman *--> Word
+Human --|> Player
+Bot --|> Player
+Bot <|-- IHangmanPlayer
+Human <|-- IHangmanPlayer
+
+Player *--> StatisticsPlayer
+StatisticsPlayer *--> Statistic
+
+
+@enduml
