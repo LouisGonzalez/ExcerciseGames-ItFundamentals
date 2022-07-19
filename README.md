@@ -9,12 +9,15 @@
 
 ###### Agregar dos atributos a SecretWord OriginalWord y HiddenWord
 
-# DomainDiagramTicTacToe
-## A Favor
-
 ## En contra
+###### Tener rondas con 1 turno
+###### Asignar roles por ronda
 
-## Mejoras
+## A favor
+###### La relacion de herencia dde HangManPlayer
+###### La definicion de funcionalidades de HangedMan
+###### La definicion de funcionalidades de las especializaciones de HangManPlayer
+
 
 
 
