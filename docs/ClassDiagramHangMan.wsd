@@ -1,42 +1,131 @@
 @startuml ClassHangman
 
+class Program{
+    Hangman hangman
+    TicTacToe ttt
+    ArrayList<Player> listPlayers
+    StatisticsGame stats
+    void start()
+    void menu()
+}
+
+package interfaces  {
+
+    interface IHangmanPlayer {
+        void selectWord()
+        void tryLetter()
+        void guessWord()
+        void askForAHint()
+    }
+
+    interface ITTTPlayer {
+        void returnPosition()
+    }
+
+    interface IGame {
+        void selectPlayers()
+        void go()
+        void round()
+        void turn()
+    }
+
+}
+
 package PlayerModel {
 
-class Player {
-    String name
-    StatisticsPlayer stats
-}
-interface IHangmanPlayer {
-    void selectWord()
-    void tryLetter()
-    void guessWord()
-    void askForAHint()
-}
+    class Player {
+        String name
+        StatisticsPlayer stats
+    }
 
-class Bot {
-    void selectWord()
-    char tryLetter()
-    void guessWord()
-    void askForAHint()
-}
-class Human{
-    void selectWord()
-    char tryLetter()
-    void guessWord()
-    void askForAHint()
-}
+
+    class Bot {
+    }
+
+    class Human{
+    }
+
 
 }
 
-class Hangman {
-    Word myWord
-    Player player1
-    Player player2
-    int remainingAttemps
-    int guessingAttemps
-    void round()
-    void turn()
-    void giveAHint()
+package games {
+
+    package tictactoe{
+
+        class HumanTTT{
+            void returnPosition()
+        }
+
+        class BotTTT{
+            void returnPosition()
+        }
+
+
+        class TicTacToe {
+            Board board
+            Player player1
+            Player player2
+            void selectPlayers()
+            void go()
+            void round()
+            void turn()
+        }
+
+        class Board {
+            Square[][] square
+            void printBoard()
+            void verifyPosition()
+            void isTicTacToe()
+            void moveCoin()
+        }
+
+        class Square {
+            SquareValue value
+        }
+
+        enum SquareValue {
+            X,
+            O,
+            EMPTY
+        }
+
+    }
+
+    package hangman {
+        class Hangman {
+            Word myWord
+            Player player1
+            Player player2
+            int remainingAttemps
+            int guessingAttemps
+            void selectPlayers()
+            void go()
+            void round()
+            void turn()
+            void giveAHint()
+        }
+
+        class Word{
+            String originalWord
+            String hiddenWord
+        }
+
+        class HumanHangman{
+            void selectWord()
+            char tryLetter()
+            void guessWord()
+            void askForAHint()        
+        }
+
+        class BotHangman{
+            void selectWord()
+            char tryLetter()
+            void guessWord()
+            void askForAHint()
+        }
+
+
+    }
 
 }
 
@@ -51,20 +140,39 @@ class Statistic {
 }
 
 
-class Word{
-    String originalWord
-    String hiddenWord
-}
+
+Program *--> Hangman
+Program *--> TicTacToe
+Program *--> "10" Player
+
+IGame --|> Hangman
+IGame --|> TicTacToe
 
 Hangman *--> "2" Player
 Hangman *--> Word
 Human --|> Player
 Bot --|> Player
-Bot <|-- IHangmanPlayer
-Human <|-- IHangmanPlayer
+
+TicTacToe *--> Board
+Board *--> "3x3" Square
+Square *--> SquareValue
+TicTacToe *--> "2" Player
+
 
 Player *--> StatisticsPlayer
 StatisticsPlayer *--> Statistic
+
+BotHangman <|-- IHangmanPlayer
+HumanHangman <|-- IHangmanPlayer
+
+HumanHangman --|> Human
+HumanTTT --|> Human
+
+BotHangman --|> Bot
+BotTTT --|> Bot
+
+BotTTT <|-- ITTTPlayer
+HumanTTT <|-- ITTTPlayer
 
 
 @enduml
