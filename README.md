@@ -2,9 +2,9 @@
 # DomainDiagramHangMan 
 ## Mejoras
 ###### Cambiar a dos turnos por ronda
-###### AssingRoles colocarlo al inicio
+###### AssignRoles colocarlo al inicio
 ###### Crear un preround (initial)
-###### SelectPlayers tambien conecte con preround
+###### SelectPlayers también conecte con preround
 ###### Cambiar la linea punteada por linea completa de Round a StatisticsTempo
 
 ###### Agregar dos atributos a SecretWord OriginalWord y HiddenWord
@@ -14,9 +14,9 @@
 ###### Asignar roles por ronda
 
 ## A favor
-###### La relacion de herencia dde HangManPlayer
-###### La definicion de funcionalidades de HangedMan
-###### La definicion de funcionalidades de las especializaciones de HangManPlayer
+###### La relación de herencia de HangManPlayer
+###### La definición de funcionalidades de HangedMan
+###### La definición de funcionalidades de las especializaciones de HangManPlayer
 
 
 
@@ -39,12 +39,12 @@
 # Mejoras
 ###### Modificar rounds para que sea de 2 turnos
 ###### Asignar roles desde el principio
-###### Cambiar el tipo de relacion de player a TicTacToePlayer
+###### Cambiar el tipo de relación de player a TicTacToePlayer
 
 # En contra
 ###### Tener 2 rounds de 1 turno
-###### Rounds no deberia tener la capacidad de asignar roles
-###### La relacion de player a TicTacToePlayer es erronea
+###### Rounds no debería tener la capacidad de asignar roles
+###### La relacion de player a TicTacToePlayer es errónea
 
 # A favor
 ###### Los objetivos del jugador son apropiados
