@@ -1,30 +1,28 @@
 package model.player;
-
 import statistics.StatisticsPlayer;
+public class Player{
 
-public abstract class Player {
-    
     private String name;
     private StatisticsPlayer stats;
 
-    public Player(String name, StatisticsPlayer stats){
+    public Player(String name, StatisticsPlayer stats ) {
         this.name = name;
         this.stats = stats;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public void setStats(StatisticsPlayer stats){
+    public void setStats(StatisticsPlayer stats) {
         this.stats = stats;
     }
 
-    public StatisticsPlayer getStats(){
+    public StatisticsPlayer getStats() {
         return this.stats;
     }
 
