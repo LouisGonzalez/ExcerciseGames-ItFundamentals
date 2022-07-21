@@ -2,9 +2,9 @@ package interfaces;
 
 public interface IGame {
     
-    public void selectPlayers();
+    public void selectPlayers(int numberPlayers);
     public void go();
     public void round();
-    public void turn();
+    public void turn(int noPlayer);
 
 }

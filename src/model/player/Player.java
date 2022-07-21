@@ -26,4 +26,8 @@ public class Player{
         return this.stats;
     }
 
+    public String getType(){
+        return this.getClass().getSimpleName();
+    }
+
 }

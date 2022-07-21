@@ -5,7 +5,13 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 
+import java.util.ArrayList;
+
+import model.player.Player;
+import utils.Terminal;
+
 public class ControllerPlayer {
+<<<<<<< HEAD
     // todo lo relacionado a crud player
     private ArrayList<Player> playerList;
     String name, name2;
@@ -94,4 +100,22 @@ public class ControllerPlayer {
             System.out.println("Jugador fue borrado satisfactoriasmente");
         }
     }
+=======
+    //todo lo relacionado a crud player
+
+    private ArrayList<Player> players;
+
+    public ControllerPlayer(ArrayList<Player> players){
+        this.players = players;
+    }
+
+    public Player getOne(){
+        int playerPosition = Terminal.askNumber("Select one player");
+        if(playerPosition - 1 < players.size())
+            return this.players.get(playerPosition - 1);
+        Terminal.showMessage("The position is non-existent");
+        return null;
+    }
+
+>>>>>>> 06013256678a60fa7abd8c1c2df27bfb7f341401
 }

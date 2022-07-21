@@ -3,6 +3,7 @@ package games.tictactoe;
 import interfaces.ITTTPlayer;
 import model.player.Bot;
 import statistics.StatisticsPlayer;
+import utils.Terminal;
 
 public class BotTTT extends Bot implements ITTTPlayer {
 
@@ -10,8 +11,8 @@ public class BotTTT extends Bot implements ITTTPlayer {
         super(name, stats);
     }
 
-    public void returnPosition(){
-        
+    public int returnPosition(){
+        return (int) (Math.floor(Math.random() * 3 + 1)) - 1;
     }
 
 
