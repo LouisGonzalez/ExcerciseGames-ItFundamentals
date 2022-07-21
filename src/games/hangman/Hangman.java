@@ -4,7 +4,7 @@ import interfaces.IGame;
 
 public class Hangman implements IGame {
 
-    public void selectPlayers(){
+    public void selectPlayers(int numberPlayers){
         
     }
 
@@ -16,7 +16,7 @@ public class Hangman implements IGame {
 
     }
 
-    public void turn(){
+    public void turn(int noPlayer){
         
     }
 

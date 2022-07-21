@@ -3,6 +3,7 @@ package games.tictactoe;
 import interfaces.ITTTPlayer;
 import model.player.Human;
 import statistics.StatisticsPlayer;
+import utils.Terminal;
 
 public class HumanTTT extends Human implements ITTTPlayer {
     
@@ -10,8 +11,14 @@ public class HumanTTT extends Human implements ITTTPlayer {
         super(name, stats);
     }
 
-    public void returnPosition(){
-
+    public int returnPosition(){
+        int number = Terminal.askNumber("Type a number");
+        if(number < 1 || number > 3){
+            Terminal.showMessage("Invalid range position");
+            return returnPosition();
+        } else {
+            return number - 1;
+        }
     }
 
 }
