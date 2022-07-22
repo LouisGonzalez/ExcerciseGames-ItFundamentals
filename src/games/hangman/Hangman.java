@@ -1,3 +1,9 @@
-public class Hangman {
-    
+package games.hangman;
+
+public class Hangman  {
+
+
+
+
 }
+

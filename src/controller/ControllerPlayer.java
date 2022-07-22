@@ -28,7 +28,8 @@ public class ControllerPlayer {
             System.out.println("6  Mostrar a todos los jugadores");
             System.out.println("7. Regresar al menu principal");
             System.out.println("--------------------------");
-            option = Terminal.askNumber("Introduzca un numero");;
+            option = Terminal.askNumber("Introduzca un numero");
+            ;
             switch (option) {
                 case 1 -> createPlayer();
                 case 2 -> readPlayer();
@@ -41,6 +42,7 @@ public class ControllerPlayer {
             }
         } while (option != 7);
     }
+
     public void createPlayer() {
         System.out.println("Ingrese un numero");
         System.out.println("1. Humano\n2. Boot");
@@ -57,7 +59,7 @@ public class ControllerPlayer {
         }
     }
 
-    public void readPlayer () {
+    public void readPlayer() {
         boolean found = false;
         System.out.println("--------------------------");
         name = Terminal.askString("Ingresa el Nombre del jugador que buscas");
@@ -65,16 +67,16 @@ public class ControllerPlayer {
         while (i.hasNext()) {
             IPlayerGeneral players = i.next();
             if (players.getName().equals(name)) {
-                System.out.println("Jugador: "+ name+" fue encontrado");
-                 found = true;
+                System.out.println("Jugador: " + name + " fue encontrado");
+                found = true;
             }
         }
-        if(!found){
+        if (!found) {
             System.out.println("Jugador no encontrado");
         }
     }
 
-    public void updatePlayer () {
+    public void updatePlayer() {
         System.out.println("--------------------------");
         name = Terminal.askString("Ingresa el Nombre del jugador que quieres modificar");
         name2 = Terminal.askString("Ingresa el nuevo nombre");
@@ -87,7 +89,7 @@ public class ControllerPlayer {
         }
     }
 
-    public  void removePlayer () {
+    public void removePlayer() {
         boolean found = false;
         System.out.println("--------------------------");
         name = Terminal.askString("Ingresa el nombre del jugador que quieres modificar");
@@ -106,13 +108,13 @@ public class ControllerPlayer {
         }
     }
 
-   public IPlayerGeneral getOne () {
+    public IPlayerGeneral getOne() {
         int playerPosition = Terminal.askNumber("Ingrese numero del 1-10 para seleccionar un jugador");
-        if(playerPosition -1 < playerList.size())
-            return this.playerList.get(playerPosition-1);
+        if (playerPosition - 1 < playerList.size())
+            return this.playerList.get(playerPosition - 1);
         Terminal.showMessage("La posicion no existe");
         return null;
-   }
+    }
 
     public void ShowPlayers() {
         System.out.println("--------------------------");

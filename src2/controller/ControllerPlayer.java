@@ -1,9 +1,12 @@
 package controller;
+<<<<<<< HEAD
 import Utils.InputData;
 import model.player.Player;
 import java.util.Iterator;
 import java.util.ArrayList;
 
+=======
+>>>>>>> c778fbc22518cec5f054c7c375036af08fd4ea23
 
 import java.util.ArrayList;
 
@@ -11,6 +14,7 @@ import model.player.Player;
 import utils.Terminal;
 
 public class ControllerPlayer {
+<<<<<<< HEAD
 <<<<<<< HEAD
     // todo lo relacionado a crud player
     private ArrayList<Player> playerList;
@@ -101,6 +105,8 @@ public class ControllerPlayer {
         }
     }
 =======
+=======
+>>>>>>> c778fbc22518cec5f054c7c375036af08fd4ea23
     //todo lo relacionado a crud player
 
     private ArrayList<Player> players;
@@ -117,5 +123,8 @@ public class ControllerPlayer {
         return null;
     }
 
+<<<<<<< HEAD
 >>>>>>> 06013256678a60fa7abd8c1c2df27bfb7f341401
+=======
+>>>>>>> c778fbc22518cec5f054c7c375036af08fd4ea23
 }
