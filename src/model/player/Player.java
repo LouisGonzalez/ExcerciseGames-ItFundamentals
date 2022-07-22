@@ -1,15 +1,16 @@
 package model.player;
 
-import statistics.StatisticsPlayer;
+import games.IPlayerGeneral;
+import games.tictactoe.SquareValue;
 
-public abstract class Player {
+public abstract class Player implements IPlayerGeneral {
     
     private String name;
-    private StatisticsPlayer stats;
 
-    public Player(String name, StatisticsPlayer stats){
+    private SquareValue coinTTT;
+
+    public Player(String name){
         this.name = name;
-        this.stats = stats;
     }
 
     public void setName(String name){
@@ -20,16 +21,12 @@ public abstract class Player {
         return this.name;
     }
 
-    public void setStats(StatisticsPlayer stats){
-        this.stats = stats;
+    public void setCoinTTT(SquareValue coinTTT){
+        this.coinTTT = coinTTT;
     }
 
-    public StatisticsPlayer getStats(){
-        return this.stats;
-    }
-
-    public String getType(){
-        return this.getClass().getSimpleName();
+    public SquareValue getCoinTTT(){
+        return this.coinTTT;
     }
 
 }

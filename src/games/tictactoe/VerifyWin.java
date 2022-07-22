@@ -1,21 +1,19 @@
 package games.tictactoe;
 
-import dictionaries.SquareValue;
-
 public class VerifyWin {
-    
-    private BoardTTT board;
 
-    public VerifyWin(BoardTTT board){
+    private Board board;
+
+    public VerifyWin(Board board){
         this.board = board;
     }
-    
+
     public boolean verifyWinX(int posX, int posY, SquareValue value){
         int auxX = 0;
         while(auxX < board.BOARD_SIZE){
             if(auxX != posX){
-                if(board.getBoard()[auxX][posY].getMyValue() != value) 
-                return verifyWinY(posX, posY, value);
+                if(board.getBoard()[auxX][posY].getMyValue() != value)
+                    return verifyWinY(posX, posY, value);
             }
             auxX++;
         }
@@ -27,7 +25,7 @@ public class VerifyWin {
         while(auxY < board.BOARD_SIZE){
             if(auxY != posY){
                 if(board.getBoard()[posX][auxY].getMyValue() != value)
-                return verifyWinXY(value);
+                    return verifyWinXY(value);
             }
             auxY++;
         }
@@ -38,7 +36,7 @@ public class VerifyWin {
         int auxX = 0, auxY = 0;
         while(auxX < board.BOARD_SIZE && auxY < board.BOARD_SIZE){
             if(board.getBoard()[auxX][auxY].getMyValue() != value)
-            return verifyWinYX(value);
+                return verifyWinYX(value);
             auxX++; auxY++;
         }
         return true;
@@ -48,7 +46,7 @@ public class VerifyWin {
         int auxX = 0, auxY = 2;
         while(auxX < board.BOARD_SIZE && auxY < board.BOARD_SIZE){
             if(board.getBoard()[auxX][auxY].getMyValue() != value)
-            return false;
+                return false;
             auxX++; auxY--;
         }
         return true;

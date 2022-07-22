@@ -1,7 +1,11 @@
-public class Bot extends Player{
+package model.player;
+
+import statistics.StatisticsPlayer;
+
+public class Bot extends Player {
     
-    public Bot(String name){
-        super(name);
+    public Bot(String name, StatisticsPlayer stats){
+        super(name, stats);
     }
 
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 public class WordHG {
     public String originalWord;
@@ -94,4 +95,10 @@ public class WordHG {
     }
 
 
+=======
+package games.hangman;
+
+public class WordHG {
+    
+>>>>>>> 647acef7f6aec3e39ee4366a1f45523d23ce4e9f
 }

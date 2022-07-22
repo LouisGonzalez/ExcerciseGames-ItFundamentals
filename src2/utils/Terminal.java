@@ -1,7 +1,12 @@
+<<<<<<< HEAD
+=======
+package utils;
+
+>>>>>>> 647acef7f6aec3e39ee4366a1f45523d23ce4e9f
 import java.util.Scanner;
 
 public class Terminal {
-        
+    
     public static Integer askNumber(String message){
         try {
             Scanner scanner = new Scanner(System.in);
@@ -40,5 +45,5 @@ public class Terminal {
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
-
+    
 }
