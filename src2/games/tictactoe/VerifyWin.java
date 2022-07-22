@@ -1,10 +1,12 @@
 package games.tictactoe;
 
+import dictionaries.SquareValue;
+
 public class VerifyWin {
     
-    private Board board;
+    private BoardTTT board;
 
-    public VerifyWin(Board board){
+    public VerifyWin(BoardTTT board){
         this.board = board;
     }
     
