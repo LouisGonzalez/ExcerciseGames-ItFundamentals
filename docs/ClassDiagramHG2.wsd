@@ -15,7 +15,7 @@ abstract Game {
 }
 
 interface IPlayerGeneral{
-    + saveGameResults(String result):void
+    + saveGameResults(TypeGame type, StatisticValue value):void
 }
 
 package hangman {
@@ -25,6 +25,8 @@ package hangman {
         - int guessingAttempts
         - Board board
         - WordHG word
+        - IGiverable wordGiver
+        - IGuesserable wordGuesser
     }
 
     class Board {
@@ -46,12 +48,6 @@ package hangman {
         + boolean checkLetter()
         - void placeLetters()
         - int getExistingPosition()
-    }
-
-    class Turn{
-        + IGiverable wordGiver
-        + IGuesserable wordGuesser
-        + void turn()
     }
 
     interface IHangmanPlayer{}
@@ -90,7 +86,6 @@ Player ..|> IPlayerGeneral
 
 Hangman *--> Board
 Hangman *--> WordHG
-Hangman --> Turn
 
 Game ..> GamePlayersProvider
 
@@ -102,8 +97,8 @@ ListPlayers ..|> GamePlayersProvider
 
 Game *-- IPlayerGeneral
 
-Turn *--> IGiverable
-Turn *--> IGuesserable
+Hangman *--> IGiverable
+Hangman *--> IGuesserable
 
 Hangman -up-|> Game
 
