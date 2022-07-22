@@ -1,10 +1,8 @@
 package model.player;
-
 import utils.Terminal;
 
 
-public class Bot extends Player{
-    
+public class Bot extends Player{    
     
     public Bot(String name){
         super(name);

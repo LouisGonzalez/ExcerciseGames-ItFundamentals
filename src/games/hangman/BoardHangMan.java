@@ -36,7 +36,7 @@ public class BoardHangMan {
         Terminal.showMessage("   ---------- ");   
 
         for (int i = 0; i < BODY_SEGMENTS; i++){
-            System.out.println("   |       " + this.hangedMan[i]);                 
+            Terminal.showMessage("   |       " + this.hangedMan[i]);                 
         }   
         Terminal.showMessage("---------------");     
         Terminal.showMessage("******************");  
