@@ -1,3 +1,4 @@
+package games.hangman;
 
 public class BoardHangMan {
 

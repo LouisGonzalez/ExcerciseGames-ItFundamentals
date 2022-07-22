@@ -1,11 +1,25 @@
-package model.player;
+import java.util.Scanner;
 
-import statistics.StatisticsPlayer;
-
-public class Human extends Player{
+public class Human extends Player {
     
-    public Human(String name, StatisticsPlayer stats){
-        super(name, stats);
+
+    public Human(String name){
+        super(name);
     }
+
+    @Override
+    public String selectWord() {
+        String msg = (this.getName() + ", enter secretword: ");  
+        String secretWord = Terminal.askString(msg);
+        return secretWord;
+    }
+
+    @Override
+    public String tryLetter() {          
+        String msg = (this.getName() + ", enter letter guess: ");  
+        String guess = Terminal.askString(msg);
+        return guess;
+    }
+
 
 }
