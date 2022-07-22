@@ -1,33 +1,16 @@
 package model.player;
-import statistics.StatisticsPlayer;
-public class Player{
 
+import games.IPlayerGeneral;
+
+public abstract class Player implements IPlayerGeneral {
+    
     private String name;
-    private StatisticsPlayer stats;
 
-    public Player(String name, StatisticsPlayer stats ) {
-        this.name = name;
-        this.stats = stats;
-    }
-
-    public void setName(String name) {
+    public Player(String name){
         this.name = name;
     }
 
-    public String getName() {
-        return this.name;
-    }
+    public  String getName() {return name;}
 
-    public void setStats(StatisticsPlayer stats) {
-        this.stats = stats;
-    }
-
-    public StatisticsPlayer getStats() {
-        return this.stats;
-    }
-
-    public String getType(){
-        return this.getClass().getSimpleName();
-    }
-
+    public void setName(String name) {this.name = name;}
 }

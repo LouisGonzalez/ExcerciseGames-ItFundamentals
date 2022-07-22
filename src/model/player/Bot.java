@@ -1,11 +1,11 @@
 package model.player;
 
-import statistics.StatisticsPlayer;
+import model.player.Player;
 
 public class Bot extends Player {
     
-    public Bot(String name, StatisticsPlayer stats){
-        super(name, stats);
+    public Bot(String name){
+        super(name);
     }
 
 }

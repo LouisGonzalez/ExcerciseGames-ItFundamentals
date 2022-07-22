@@ -1,11 +1,11 @@
 package model.player;
 
-import statistics.StatisticsPlayer;
+import model.player.Player;
 
-public class Human extends Player{
+public class Human extends Player {
     
-    public Human(String name, StatisticsPlayer stats){
-        super(name, stats);
+    public Human(String name){
+        super(name);
     }
 
 }

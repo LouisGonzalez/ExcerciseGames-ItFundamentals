@@ -3,7 +3,7 @@ package utils;
 import java.util.Scanner;
 
 public class Terminal {
-        
+    
     public static Integer askNumber(String message){
         try {
             Scanner scanner = new Scanner(System.in);
@@ -42,5 +42,5 @@ public class Terminal {
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
-
+    
 }
