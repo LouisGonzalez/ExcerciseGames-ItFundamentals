@@ -3,7 +3,7 @@ import games.hangman.IHangmanPlayer;
 import games.tictactoe.ITTTPlayer;
 import games.tictactoe.SquareValue;
 
-public interface IPlayerGeneral extends ITTTPlayer {
+public interface IPlayerGeneral extends ITTTPlayer, IHangmanPlayer {
 
     public void saveGameResult();
     public String getName();

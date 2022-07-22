@@ -19,6 +19,17 @@ public class Human extends Player {
         }
     }
 
+    public String selectWord() {
+        String msg = (this.getName() + ", enter secretword: ");  
+        String secretWord = Terminal.askString(msg);
+        return secretWord;
+    }
+
+    public String tryLetter() {          
+        String msg = (this.getName() + ", enter letter guess: ");  
+        String guess = Terminal.askString(msg);
+        return guess;
+    }
     public void saveGameResult(){
 
     }
