@@ -55,7 +55,7 @@ public class ControllerPlayer {
             name = Terminal.askString("Introduzca un nombre para el jugador Boot");
             Player boot = new Bot(name);
             playerList.add(boot);
-            System.out.println("index: " + playerList.indexOf(boot));
+            //System.out.println("index: " + playerList.indexOf(boot));
         }
     }
 
@@ -109,6 +109,7 @@ public class ControllerPlayer {
     }
 
     public IPlayerGeneral getOne() {
+        ShowPlayers();
         int playerPosition = Terminal.askNumber("Ingrese numero del 1-10 para seleccionar un jugador");
         if (playerPosition - 1 < playerList.size())
             return this.playerList.get(playerPosition - 1);
@@ -121,7 +122,7 @@ public class ControllerPlayer {
         System.out.println("Lista de jugadores Creados");
         for (IPlayerGeneral player : playerList) {
             System.out.println("Nombre: " + player.getName());
-            System.out.println("index: " + playerList.indexOf(player));
+            //System.out.println("index: " + playerList.indexOf(player));
         }
     }
 }

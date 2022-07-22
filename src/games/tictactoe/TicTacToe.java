@@ -1,8 +1,12 @@
 package games.tictactoe;
 
+import java.util.ArrayList;
+
 import games.Game;
 import games.IPlayerGeneral;
 import model.player.Dice;
+import statistics.StatisticValue;
+import statistics.TypeGame;
 import utils.Terminal;
 
 public class TicTacToe extends Game {
@@ -13,9 +17,11 @@ public class TicTacToe extends Game {
     private Board board;
     private Dice dice = new Dice();
 
-    public TicTacToe(int totalPlayers){
-        super(totalPlayers);
+    public TicTacToe(ArrayList<IPlayerGeneral> generalList, int totalPlayers){
+        super(generalList, totalPlayers);
         this.board = new Board(this);
+        this.selectPlayer(this.listProviders);
+
     }
 
     private SquareValue giveCoin(int index){
@@ -67,6 +73,7 @@ public class TicTacToe extends Game {
                 break;
         }
         board.printBoard();
+        Terminal.pressEnter();
     }
 
     public void executeTurn(IPlayerGeneral actualPlayer){
@@ -77,7 +84,10 @@ public class TicTacToe extends Game {
             this.contMovements++;
             if(!this.board.isTicTacToe(posX, posY, actualPlayer.getCoinTTT())){
                 this.gameOver = board.isEmptySpaces(this.contMovements);
-                if(this.gameOver) Terminal.showMessage("Nadie ha podido ganar el juego");
+                if(this.gameOver) {
+                    Terminal.showMessage("Nadie ha podido ganar el juego");
+                    this.setResults(StatisticValue.DRAW, 1);
+                }
             } else {
                 this.gameOver = true;
                 showPlayerWinner(actualPlayer);
@@ -89,7 +99,18 @@ public class TicTacToe extends Game {
         Terminal.clearScreen();
         Terminal.decorate();
         Terminal.showMessage("The winner is: " + actualPlayer.getName());
+        actualPlayer.saveGameResult(TypeGame.TicTacToe, StatisticValue.WIN);
+        this.setResults(StatisticValue.LOSE, 2);
         Terminal.decorate();
+    }
+
+    public void setResults(StatisticValue value, int caso){
+        for (int i = 0; i < this.players.size(); i++) {
+            if(caso == 2){
+                if(i != this.indexPlayer)
+                    this.players.get(i).saveGameResult(TypeGame.TicTacToe, value);
+            } else this.players.get(i).saveGameResult(TypeGame.TicTacToe, value);
+        }
     }
 
     public void setContMovements(int contMovements){

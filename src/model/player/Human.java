@@ -1,6 +1,9 @@
 package model.player;
 
 import model.player.Player;
+import statistics.Statistic;
+import statistics.StatisticValue;
+import statistics.TypeGame;
 import utils.Terminal;
 
 public class Human extends Player {
@@ -30,8 +33,7 @@ public class Human extends Player {
         String guess = Terminal.askString(msg);
         return guess;
     }
-    public void saveGameResult(){
 
-    }
+
 
 }

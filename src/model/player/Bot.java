@@ -1,4 +1,7 @@
 package model.player;
+import statistics.Statistic;
+import statistics.StatisticValue;
+import statistics.TypeGame;
 import utils.Terminal;
 
 
@@ -30,8 +33,6 @@ public class Bot extends Player{
         Terminal.pressEnter();
         return guess;
     }
-    public void saveGameResult(){
-
-    }
+    
 
 }

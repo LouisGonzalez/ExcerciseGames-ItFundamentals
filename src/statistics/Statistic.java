@@ -4,14 +4,28 @@ import utils.Terminal;
 
 public class Statistic {
 
-    private String name;
+    private StatisticValue value;
+    private TypeGame typeGame;
 
-    public Statistic(String name){
-        this.name = name;
+    public Statistic(StatisticValue value, TypeGame typeGame){
+        this.value = value;
+        this.typeGame = typeGame;
     }
 
-    public  String getName() {return name;}
+    public StatisticValue getValue(){
+        return this.value;
+    }
 
-    public void setName(String name) {this.name = name;}
+    public void setValue(StatisticValue value){
+        this.value = value;
+    }
+
+    public TypeGame getTypeGame(){
+        return this.typeGame;
+    }
+
+    public void setTypeGame(TypeGame typeGame){
+        this.typeGame = typeGame;
+    }
 
 }

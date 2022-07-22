@@ -1,7 +1,11 @@
 package games.hangman;
 
+import java.util.ArrayList;
+
 import games.Game;
 import games.IPlayerGeneral;
+import statistics.StatisticValue;
+import statistics.TypeGame;
 import utils.Terminal;
 
 public class Hangman extends Game{
@@ -19,8 +23,9 @@ public class Hangman extends Game{
     private boolean hintGiven;
 
  
-    public Hangman(int totalPlayers) {
-        super(totalPlayers);
+    public Hangman(ArrayList<IPlayerGeneral> generalList, int totalPlayers) {
+        super(generalList, totalPlayers);
+        this.selectPlayer(this.listProviders);
     }
 
     @Override
@@ -30,7 +35,7 @@ public class Hangman extends Game{
             round();
         } while (!board.winCondition);
         checkWinner(); 
-        
+        Terminal.pressEnter();
     }
 
     @Override
@@ -57,7 +62,7 @@ public class Hangman extends Game{
         Terminal.clearScreen();
         Terminal.decorate();
         Terminal.showMessage("**WELCOME TO HANGMAN**");
-        Terminal.showMessage("**********************");
+        Terminal.decorate();
         hintGiven = false;
         guessingAttempts = 1;
         remainingAttempts = 8; 
@@ -121,8 +126,12 @@ public class Hangman extends Game{
     public void checkWinner(){
         if (remainingAttempts == 0){
             Terminal.showMessage(playerGiver.getName() + " is Winner!!!!"); 
+            playerGiver.saveGameResult(TypeGame.HANGMAN, StatisticValue.WIN);
+            playerGuesser.saveGameResult(TypeGame.HANGMAN, StatisticValue.LOSE);
         } else {
             Terminal.showMessage(playerGuesser.getName() + " is Winner!!!!"); 
+            playerGiver.saveGameResult(TypeGame.HANGMAN, StatisticValue.LOSE);
+            playerGuesser.saveGameResult(TypeGame.HANGMAN, StatisticValue.WIN);
         }
     }
 
