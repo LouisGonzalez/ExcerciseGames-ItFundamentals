@@ -1,5 +1,5 @@
-public interface IGuesserable {
+public class IGuesserable implements IHangmanPlayer {
  
-    
+  
     
 }

@@ -1,3 +1,6 @@
-public interface IPlayerGeneral {
+import interfaces.ITTTPlayer;
+
+public class IPlayerGeneral{
+
     
 }
