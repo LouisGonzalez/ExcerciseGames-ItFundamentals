@@ -16,7 +16,7 @@ public class Bot extends Player{
     }
   
     public String selectWord(){
-        String[] wordBank = {"dog", "apple", "carrot", "school", "appendix", "laparoscopy", "brownie", "purple", "haze"};
+        String[] wordBank = {"dog", "apple", "carrot", "school", "appendix", "laparoscopy", "brownie", "purple", "haze", "chimichanga", "shrek"};
         Terminal.showMessage(this.getName() + ", enter secretword: ");
         int randomwordPosition = (int) (Math.random()*(wordBank.length-1));
         Terminal.showMessage(" *Entered secret word* ");
