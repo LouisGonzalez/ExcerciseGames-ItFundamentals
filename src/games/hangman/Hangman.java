@@ -71,7 +71,7 @@ public class Hangman extends Game{
     }  
 
     public void setPlayers(){ 
-        Terminal.showMessage("Selecting Player"); 
+        Terminal.showMessage("Randomly choosing First Player"); 
         player1 = this.players.get(0); 
         player2 = this.players.get(1);  
     }
@@ -95,7 +95,6 @@ public class Hangman extends Game{
 
 
     public void round(){
-        offerHint();
         try {
             turn();
             board.printHangMan();
@@ -144,15 +143,16 @@ public class Hangman extends Game{
         Terminal.showMessage("Playing turn #" + guessingAttempts); 
         Terminal.showMessage("Guessing attempts left " + (remainingAttempts)); 
         String currentGuess = "";
+        offerHint();
         currentGuess = playerGuesser.tryLetter();  
-        myWord.setGuessingLetter(currentGuess); 
+        myWord.setGuessingLetter(currentGuess);
         //
         if (!myWord.checkLetter()){
             remainingAttempts--;
             board.setHangmanParts(remainingAttempts);  
-            board.editHangedMan();
+            board.editHangedMan();       
         } else board.setWinCondition(myWord.checkWin()); 
-                
+        
     }
     
 }

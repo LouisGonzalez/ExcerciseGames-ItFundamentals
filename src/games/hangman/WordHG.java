@@ -1,5 +1,7 @@
 package games.hangman;
 
+import utils.Terminal;
+
 public class WordHG {
     public String originalWord;     //secret word
     public String hiddenWord;       //word that is being spelled out
@@ -8,7 +10,7 @@ public class WordHG {
 
     public WordHG(String originalWord) {
         this.originalWord = originalWord;
-        lettersGuessed = "";
+        this.lettersGuessed = "";
     }
     
     public void setGuessingLetter(String guessingLetter) {
@@ -27,6 +29,32 @@ public class WordHG {
         }
     }
 
+
+    public void printGuessedLetters(){
+        System.out.print("Letters guessed: ");
+        char[] letters = this.lettersGuessed.toCharArray();
+        placeGuessedLetters();
+
+        for (int i = 0; i < letters.length; i++){
+            System.out.print(String.valueOf(letters[i]) + " ");
+        }
+        Terminal.showMessage(""); 
+
+    }
+
+    private void placeGuessedLetters(){
+        if (!alreadyGuessed()){
+            this.lettersGuessed += this.guessingLetter;
+        }
+
+    }
+
+    private boolean alreadyGuessed(){        
+        boolean guessedAlready = (this.lettersGuessed.indexOf(this.guessingLetter) == -1) ? false : true;
+        return guessedAlready;
+
+    }
+
     private void placeLetters(){
         char[] secretWordarray = this.originalWord.toCharArray();
         int wordLen = secretWordarray.length;
@@ -36,6 +64,7 @@ public class WordHG {
         for (int i = 0; i < wordLen; i++){
             if (secretWordarray[i] == letter) {
                 hiddenWordarray[i] = letter;
+
             }
         }
         this.hiddenWord = String.valueOf(hiddenWordarray);        
@@ -57,26 +86,34 @@ public class WordHG {
 
     public void printMissingLetters(){
         char[] secretWordarray = this.originalWord.toCharArray();
-        System.out.println(this.hiddenWord);  
+        Terminal.showMessage(this.hiddenWord);  
 
         for (int i = 0; i < secretWordarray.length; i++){
             System.out.print("-");                             
         }
-        System.out.println(); 
+        Terminal.showMessage(""); 
     }
 
     public boolean checkLetter(){
         int letterPosition = getExistingPosition();
 
+        if (alreadyGuessed() && this.guessingLetter != ""){
+            Terminal.showMessage("Already guessed this letter"); 
+            printGuessedLetters(); 
+            return true;
+        }
+        
         if (letterPosition == -1 ){
-            System.out.println(this.guessingLetter + " is not in word"); 
+            Terminal.showMessage(this.guessingLetter + " is not in word");
+            printGuessedLetters(); 
             return false;
         }
         else {
             if (this.guessingLetter != ""){
-                System.out.println(this.guessingLetter + " is in word!!"); 
+                Terminal.showMessage(this.guessingLetter + " is in word!!"); 
             }            
             placeLetters();
+            printGuessedLetters(); 
             return true;
         }
 
@@ -94,7 +131,7 @@ public class WordHG {
             }
         }
         this.hiddenWord = String.valueOf(hiddenWordarray);
-        System.out.println("**HINT GIVEN**"); 
+        Terminal.showMessage("**HINT GIVEN**"); 
         printMissingLetters();
     }
 
