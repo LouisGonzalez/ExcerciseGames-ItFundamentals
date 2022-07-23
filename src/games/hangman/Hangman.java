@@ -8,8 +8,7 @@ import statistics.StatisticValue;
 import statistics.TypeGame;
 import utils.Terminal;
 
-public class Hangman extends Game{
- 
+public class Hangman extends Game{ 
 
     private WordHG myWord;
     private IGuesserable playerGuesser; 
@@ -33,12 +32,13 @@ public class Hangman extends Game{
     public void go() {
         firstPlay  = (int) (Math.random()*(2)) + 1; 
         for (int i = 0; i < 2; i++){
-            play();
+            play(i);
         }
     }
 
-    private void play(){
+    private void play(int round){
         startUp();
+        Terminal.showMessage("Round #" + (round+1));
         do {
             round();
         } while (!board.winCondition);
@@ -70,18 +70,13 @@ public class Hangman extends Game{
         choose1stPlayer();
     }  
 
-    public void setPlayers(){ 
+    private void setPlayers(){ 
         Terminal.showMessage("Randomly choosing First Player"); 
         player1 = this.players.get(0); 
         player2 = this.players.get(1);  
     }
 
-    public void giveAHint(boolean given){
-        Terminal.showMessage("Giving Hint");
-
-    }
-
-    public void choose1stPlayer(){
+    private void choose1stPlayer(){
         if (firstPlay == 1){  
             playerGiver = player2; 
             playerGuesser = player1; 
@@ -94,7 +89,7 @@ public class Hangman extends Game{
     }
 
 
-    public void round(){
+    private void round(){
         try {
             turn();
             board.printHangMan();
@@ -118,7 +113,7 @@ public class Hangman extends Game{
 
     }
 
-    public void checkWinner(){
+    private void checkWinner(){
         if (remainingAttempts == 0){
             Terminal.showMessage(playerGiver.getName() + " is Winner!!!!"); 
             playerGiver.saveGameResult(TypeGame.HANGMAN, StatisticValue.WIN);
@@ -131,7 +126,7 @@ public class Hangman extends Game{
         }
     }
 
-    public void firstTurn(){
+    private void firstTurn(){
         String secretWord = "";
         System.out.print("First Player is: ");   
         Terminal.showMessage(playerGiver.getName());  
@@ -141,7 +136,7 @@ public class Hangman extends Game{
         myWord.createGuessWord();        
     }
 
-    public void otherTurns(){
+    private void otherTurns(){
         Terminal.showMessage("Playing turn #" + guessingAttempts); 
         Terminal.showMessage("Guessing attempts left " + (remainingAttempts)); 
         String currentGuess = "";
