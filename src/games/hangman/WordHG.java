@@ -1,12 +1,14 @@
 package games.hangman;
 
 public class WordHG {
-    public String originalWord;
-    public String hiddenWord;
-    public String guessingLetter;
+    public String originalWord;     //secret word
+    public String hiddenWord;       //word that is being spelled out
+    public String guessingLetter;   //Letter that is guessed
+    public String lettersGuessed;   //letters that have been guessed
 
     public WordHG(String originalWord) {
         this.originalWord = originalWord;
+        lettersGuessed = "";
     }
     
     public void setGuessingLetter(String guessingLetter) {
@@ -71,7 +73,7 @@ public class WordHG {
             return false;
         }
         else {
-            if (this.guessingLetter != " "){
+            if (this.guessingLetter != ""){
                 System.out.println(this.guessingLetter + " is in word!!"); 
             }            
             placeLetters();

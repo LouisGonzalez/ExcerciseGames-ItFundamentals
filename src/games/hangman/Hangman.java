@@ -21,6 +21,7 @@ public class Hangman extends Game{
     private int remainingAttempts; 
     private int guessingAttempts; 
     private boolean hintGiven;
+    private int firstPlay;
 
  
     public Hangman(ArrayList<IPlayerGeneral> generalList, int totalPlayers) {
@@ -30,29 +31,26 @@ public class Hangman extends Game{
 
     @Override
     public void go() {
+        firstPlay  = (int) (Math.random()*(2)) + 1; 
+        for (int i = 0; i < 2; i++){
+            play();
+        }
+    }
+
+    private void play(){
         startUp();
         do {
             round();
         } while (!board.winCondition);
         checkWinner(); 
         Terminal.pressEnter();
+
     }
 
     @Override
     public void turn() {
-        if (guessingAttempts == 1){
-            firstTurn();
-        } else {
-            String currentGuess = "";
-            currentGuess = playerGuesser.tryLetter();  
-            myWord.setGuessingLetter(currentGuess); 
-            //
-            if (!myWord.checkLetter()){
-                remainingAttempts--;
-                board.setHangmanParts(remainingAttempts);  
-                board.editHangedMan();
-            } else board.setWinCondition(myWord.checkWin());  
-        }  
+        if (guessingAttempts == 1) firstTurn();
+        else  otherTurns();          
         guessingAttempts++;  
         
     }
@@ -61,7 +59,7 @@ public class Hangman extends Game{
     public void startUp(){
         Terminal.clearScreen();
         Terminal.decorate();
-        Terminal.showMessage("**WELCOME TO HANGMAN**");
+        Terminal.showMessage("*****WELCOME TO HANGMAN*****");
         Terminal.decorate();
         hintGiven = false;
         guessingAttempts = 1;
@@ -84,21 +82,19 @@ public class Hangman extends Game{
     }
 
     public void choose1stPlayer(){
-        int firstPlay  = (int) (Math.random()*(2)) + 1; 
         if (firstPlay == 1){  
             playerGiver = player2; 
-            playerGuesser = player1;      
+            playerGuesser = player1; 
+            firstPlay++;     
         } else { 
             playerGiver = player1; 
-            playerGuesser = player2;           
-        } 
-        
+            playerGuesser = player2; 
+            firstPlay = 1;               
+        }         
     }
 
 
     public void round(){
-        Terminal.showMessage("Playing turn #" + guessingAttempts); 
-        Terminal.showMessage("Guessing attempts left " + (remainingAttempts)); 
         offerHint();
         try {
             turn();
@@ -142,6 +138,21 @@ public class Hangman extends Game{
         secretWord = playerGiver.selectWord();            
         myWord = new WordHG(secretWord);
         myWord.createGuessWord();        
+    }
+
+    public void otherTurns(){
+        Terminal.showMessage("Playing turn #" + guessingAttempts); 
+        Terminal.showMessage("Guessing attempts left " + (remainingAttempts)); 
+        String currentGuess = "";
+        currentGuess = playerGuesser.tryLetter();  
+        myWord.setGuessingLetter(currentGuess); 
+        //
+        if (!myWord.checkLetter()){
+            remainingAttempts--;
+            board.setHangmanParts(remainingAttempts);  
+            board.editHangedMan();
+        } else board.setWinCondition(myWord.checkWin()); 
+                
     }
     
 }

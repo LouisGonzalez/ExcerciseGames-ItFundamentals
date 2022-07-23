@@ -25,6 +25,8 @@ public class Human extends Player {
     public String selectWord() {
         String msg = (this.getName() + ", enter secretword: ");  
         String secretWord = Terminal.askString(msg);
+        Terminal.pressEnter();
+        Terminal.clearScreen();
         return secretWord;
     }
 

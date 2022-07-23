@@ -32,6 +32,7 @@ public class BoardHangMan {
     }
 
     public void printHangMan(){  
+
         Terminal.showMessage("******************");  
         Terminal.showMessage("   ---------- ");   
 
@@ -42,6 +43,7 @@ public class BoardHangMan {
         Terminal.showMessage("******************");  
              
     }
+
 
 
     public void editHangedMan(){
