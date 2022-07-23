@@ -4,6 +4,7 @@ import utils.Terminal;
 
 public class WordHG {
     public String originalWord;     //secret word
+
     public String hiddenWord;       //word that is being spelled out
     public String guessingLetter;   //Letter that is guessed
     public String lettersGuessed;   //letters that have been guessed
@@ -15,6 +16,10 @@ public class WordHG {
     
     public void setGuessingLetter(String guessingLetter) {
         this.guessingLetter = guessingLetter;
+    }
+    
+    public String getOriginalWord() {
+        return originalWord;
     }
 
     private int getExistingPosition(){        

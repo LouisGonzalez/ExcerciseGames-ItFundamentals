@@ -59,7 +59,7 @@ public class Hangman extends Game{
     public void startUp(){
         Terminal.clearScreen();
         Terminal.decorate();
-        Terminal.showMessage("*****WELCOME TO HANGMAN*****");
+        Terminal.showMessage("*******WELCOME TO HANGMAN*******");
         Terminal.decorate();
         hintGiven = false;
         guessingAttempts = 1;
@@ -122,7 +122,8 @@ public class Hangman extends Game{
         if (remainingAttempts == 0){
             Terminal.showMessage(playerGiver.getName() + " is Winner!!!!"); 
             playerGiver.saveGameResult(TypeGame.HANGMAN, StatisticValue.WIN);
-            playerGuesser.saveGameResult(TypeGame.HANGMAN, StatisticValue.LOSE);
+            playerGuesser.saveGameResult(TypeGame.HANGMAN, StatisticValue.LOSE);            
+            Terminal.showMessage(myWord.getOriginalWord() + " was the secret word."); 
         } else {
             Terminal.showMessage(playerGuesser.getName() + " is Winner!!!!"); 
             playerGiver.saveGameResult(TypeGame.HANGMAN, StatisticValue.LOSE);
@@ -133,7 +134,8 @@ public class Hangman extends Game{
     public void firstTurn(){
         String secretWord = "";
         System.out.print("First Player is: ");   
-        System.out.println(playerGiver.getName());   
+        Terminal.showMessage(playerGiver.getName());  
+        Terminal.showMessage("");   
         secretWord = playerGiver.selectWord();            
         myWord = new WordHG(secretWord);
         myWord.createGuessWord();        
