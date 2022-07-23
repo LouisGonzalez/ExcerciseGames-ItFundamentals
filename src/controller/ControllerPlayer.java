@@ -23,9 +23,9 @@ public class ControllerPlayer {
             Terminal.showMessage("1. Crear Jugador");
             Terminal.showMessage("2. Leer Jugadores");
             Terminal.showMessage("3. Actualizar Jugadores");
-            Terminal.showMessage("4.  Borrar jugadores");
-            Terminal.showMessage("5.  Obtener jugador");
-            Terminal.showMessage("6.  Mostrar a todos los jugadores");
+            Terminal.showMessage("4. Borrar jugadores");
+            Terminal.showMessage("5. Obtener jugador");
+            Terminal.showMessage("6. Mostrar a todos los jugadores");
             Terminal.showMessage("7. Regresar al menu principal");
             Terminal.showMessage("--------------------------");
             option = Terminal.askNumber("Introduzca un numero");
